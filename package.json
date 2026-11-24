@@ -1,0 +1,44 @@
+{
+  "name": "crypto-analyzer",
+  "version": "1.0.0",
+  "description": "Analisis kripto dengan prediksi harga dan berita",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "local.crypto.analyzer",
+    "productName": "CryptoAnalyzer",
+    "artifactName": "CryptoAnalyzer-Setup-${version}.exe",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "shim.js"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Crypto Analyzer"
+    }
+  },
+  "author": "Crypto Analyzer"
+}
